@@ -19,7 +19,7 @@ _Note: Not all initial states are solvable. An initial state is solvable if and 
 #### State.py
  This class defines each state as a “node”, having a cost, a parent, an array of values (order of numbers), a heuristic type (whether Manhattan, Euclidean or none for uninformed search) and a value for the heuristic function.
 get_children(): This function swaps the “0” element with all possible adjacent elements to get the children of a certain node.
-##### Puzzle.py
+#### Puzzle.py
  This class defines the search algorithms used to find the solution:
 **BFS():** This function utilizes the Breadth-First Search algorithm. It utilizes the deque library to implement a FIFO queue data structure using its popleft() and append() functions.
 It also uses a list of arrays for previously visited or “explored” board states.
