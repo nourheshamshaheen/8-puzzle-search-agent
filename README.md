@@ -76,7 +76,7 @@ Driver class loading the UI file and executing the application.
 ## Sample Run and Comparison between algorithms:
 Let’s point out how our program works and then compare between the different
 algorithms:
-<align: center> ![Picture1](Picture1.png) </>
+<p align: center> ![Picture1](Picture1.png) </p>
 The program starts with this window. The puzzle board is set to its goal state. And the
 initial state text box is set to the initial state wanted in the assignment document.
 To choose a certain algorithm, we just check the correct radio button and click “run”.
