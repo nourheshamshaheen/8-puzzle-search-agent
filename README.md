@@ -77,16 +77,25 @@ Driver class loading the UI file and executing the application.
 Let’s point out how our program works and then compare between the different
 algorithms:
 
-<img align: center> ![Picture1](Picture1.png) </img>
+![Picture1](Picture1.png)
 
 The program starts with this window. The puzzle board is set to its goal state. And the
 initial state text box is set to the initial state wanted in the assignment document.
 To choose a certain algorithm, we just check the correct radio button and click “run”.
 For example, let’s choose the BFS algorithm.
+
+![Picture2](Picture2.png)
+
 The board displays the initial state values, as well as the number of states from initial state
 to goal state which is equal to cost of path + 1.
+
 And we can move through the states using the “Next” and “Previous” arrows as well as the
 text indicator of where we are in the solution states. As well, there is a “Skip Forward”
 button transferring the user to the goal state (if they want to move through the states from
 end to beginning) as well as a “Skip Backward” button for the opposite purpose.
+
+![Picture3](Picture3.png) ![Picture4](Picture4.png) ![Picture5](Picture5.png)
+
 The console prints out the number of expanded nodes, running time, and search depth.
+
+![Picture6](Picture6.png)
