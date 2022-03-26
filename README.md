@@ -45,12 +45,12 @@ This class defines the search algorithms used to find the solution – Notable f
 library to implement a FIFO queue data structure using its popleft() and append()
 functions. It also uses a set of strings for previously visited or “explored” board states. It
 uses a hash map to store parent-child relationships.
-       *
+
 **DFS():** This function utilizes the Depth-First Search algorithm. It utilizes the deque library
 to implement a LIFO stack data structure using its pop() and append() functions.
 It also uses a set of strings for previously visited or “explored” board states. It uses a hash
 map to store parent-child relationships.
-       *
+
 **A_star_man()/A_star_euc():** Both functions utilize the A* algorithm while using
 Manhattan distance as a heuristic and Euclidean distance as heuristic, respectively.
 Both functions utilize the heapq library to implement a priority queue data structure.
@@ -58,7 +58,7 @@ Elements of the priority queue are tuples where the key is the state and the val
 sum of its cost value and heuristic value.
 Both functions initialize four dictionaries: parent_map, cost_map, heuristic_map, and f_map.
 The f_map[element] is the sum of the cost_map[element] and the heuristic_map[element].
-       *
+
 **get_children(state):** This function swaps the “0” element with all possible adjacent
 elements to get the children of a certain node. It returns a list with 2, 3, or 4 children.
        *
@@ -72,3 +72,18 @@ there’s an odd number of inversions and thus the initial state is unsolvable.
 
 ### main.py
 Driver class loading the UI file and executing the application.
+
+## Sample Run and Comparison between algorithms:
+Let’s point out how our program works and then compare between the different
+algorithms:
+The program starts with this window. The puzzle board is set to its goal state. And the
+initial state text box is set to the initial state wanted in the assignment document.
+To choose a certain algorithm, we just check the correct radio button and click “run”.
+For example, let’s choose the BFS algorithm.
+The board displays the initial state values, as well as the number of states from initial state
+to goal state which is equal to cost of path + 1.
+And we can move through the states using the “Next” and “Previous” arrows as well as the
+text indicator of where we are in the solution states. As well, there is a “Skip Forward”
+button transferring the user to the goal state (if they want to move through the states from
+end to beginning) as well as a “Skip Backward” button for the opposite purpose.
+The console prints out the number of expanded nodes, running time, and search depth.
