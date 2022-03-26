@@ -99,3 +99,19 @@ end to beginning) as well as a “Skip Backward” button for the opposite purpo
 The console prints out the number of expanded nodes, running time, and search depth.
 
 ![Picture6](Picture6.png)
+
+| Point of Comparison   | BFS | DFS | A* (Manhattan) | A* (Euclidean) | 
+| --------------------- | ---------| --------- | --------- | --------- |
+| Cost of Path | 3 | 29 | 3 | 3 |
+| Nodes Expanded | 16 | 30 | 4 | 4 | 
+| Search Depth | 4 | 29 | 3 | 3 |
+| Running Time | 0.998 ms | 1 ms | 0.996  ms | 0.997 ms | 
+
+As well, we can compare between algorithms on a random difficult solvable initial state which is: **“140862573”**
+
+| Point of Comparison   | BFS | DFS | A* (Manhattan) | A* (Euclidean) | 
+| --------------------- | ---------| --------- | --------- | --------- |
+| Cost of Path | 18 | 58168 | 18 | 18 |
+| Nodes Expanded | 25607 | 370045 | 225 | 370 | 
+| Search Depth | 19 | 58168 | 18 | 18 |
+| Running Time | 960.462 ms	| 556.963 ms	| 8.974 ms	| 37.852 ms |
