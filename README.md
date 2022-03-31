@@ -76,14 +76,42 @@ Driver class loading the UI file and executing the application.
 ## Sample Run and Comparison between algorithms:
 Let’s point out how our program works and then compare between the different
 algorithms:
+
+![Picture1](Picture1.png)
+
 The program starts with this window. The puzzle board is set to its goal state. And the
 initial state text box is set to the initial state wanted in the assignment document.
 To choose a certain algorithm, we just check the correct radio button and click “run”.
 For example, let’s choose the BFS algorithm.
+
+![Picture2](Picture2.png)
+
 The board displays the initial state values, as well as the number of states from initial state
 to goal state which is equal to cost of path + 1.
+
 And we can move through the states using the “Next” and “Previous” arrows as well as the
 text indicator of where we are in the solution states. As well, there is a “Skip Forward”
 button transferring the user to the goal state (if they want to move through the states from
 end to beginning) as well as a “Skip Backward” button for the opposite purpose.
+
+![Picture3](Picture3.png) ![Picture4](Picture4.png) ![Picture5](Picture5.png)
+
 The console prints out the number of expanded nodes, running time, and search depth.
+
+![Picture6](Picture6.png)
+
+| Point of Comparison   | BFS | DFS | A* (Manhattan) | A* (Euclidean) | 
+| --------------------- | ---------| --------- | --------- | --------- |
+| Cost of Path | 3 | 29 | 3 | 3 |
+| Nodes Expanded | 16 | 30 | 4 | 4 | 
+| Search Depth | 4 | 29 | 3 | 3 |
+| Running Time | 0.998 ms | 1 ms | 0.996  ms | 0.997 ms | 
+
+As well, we can compare between algorithms on a random difficult solvable initial state which is: **“140862573”**
+
+| Point of Comparison   | BFS | DFS | A* (Manhattan) | A* (Euclidean) | 
+| ----------------------- | -----------| -------- | ------------- | ------------ |
+| Cost of Path | 18 | 58168 | 18 | 18 |
+| Nodes Expanded | 25607 | 370045 | 225 | 370 | 
+| Search Depth | 19 | 58168 | 18 | 18 |
+| Running Time | 960.462 ms	| 556.963 ms	| 8.974 ms	| 37.852 ms |
