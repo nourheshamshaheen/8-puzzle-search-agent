@@ -34,8 +34,10 @@ class Puzzle:
 
     def BFS(self):
         expanded_nodes = 0
-        frontier = deque()  # frontier is a FIFO queue: append: enqueue, popleft: dequeue
+        frontier = deque() # frontier is a FIFO queue: append: enqueue, popleft: dequeue
         frontier.append(self.initial_state)
+        frontier_set = set()
+        frontier_set.add(self.initial_state)
         explored = set()
         parent_map = {self.initial_state: None}
         cost_map = {self.initial_state: 0}
@@ -53,8 +55,9 @@ class Puzzle:
 
             children = self.get_children(state)
             for child in children:
-                if child not in frontier and child not in explored:
+                if child not in frontier_set and child not in explored:
                     frontier.append(child)
+                    frontier_set.add(child)
                     parent_map[child] = state
                     cost_map[child] = cost_map[state] + 1
         self.solvable = False
@@ -65,6 +68,8 @@ class Puzzle:
         expanded_nodes = 0
         frontier = deque()  # frontier is a LIFO stack: append: push, pop: pop
         frontier.append(self.initial_state)
+        frontier_set = set()
+        frontier_set.add(self.initial_state)
         explored = set()
         parent_map = {self.initial_state: None}
         cost_map = {self.initial_state: 0}
@@ -82,8 +87,9 @@ class Puzzle:
 
             children = self.get_children(state)
             for child in children:
-                if child not in frontier and child not in explored:
+                if child not in frontier_set and child not in explored:
                     frontier.append(child)
+                    frontier_set.add(child)
                     parent_map[child] = state
                     cost_map[child] = cost_map[state] + 1
 
@@ -100,6 +106,8 @@ class Puzzle:
         f_map = {self.initial_state: self.get_man_h(self.initial_state)}
         frontier = []  # frontier is a priority queue/minheap
         heapq.heappush(frontier, (f_map[self.initial_state], self.initial_state))
+        frontier_set = set()
+        frontier_set.add(self.initial_state)
 
         while frontier:  # while frontier priority queue is not empty (yields true)
             current_cost, state = heapq.heappop(frontier)
@@ -114,21 +122,20 @@ class Puzzle:
 
             children = self.get_children(state)
             for child in children:
-                if child not in frontier and child not in explored:
+                if child not in frontier_set and child not in explored:
                     parent_map[child] = state
                     cost_map[child] = cost_map[state] + 1
                     heuristic_map[child] = self.get_man_h(child)
                     f_map[child] = cost_map[child] + heuristic_map[child]
                     heapq.heappush(frontier, (f_map[child], child))
+                    frontier_set.add(child)
                 elif child in frontier:
                     if cost_map[state] + 1 < cost_map[child]:
-                        frontier.remove((f_map[child], child))
                         parent_map[child] = state
                         cost_map[child] = cost_map[state] + 1
                         heuristic_map[child] = self.get_man_h(child)
                         f_map[child] = cost_map[child] + heuristic_map[child]
                         heapq.heappush(frontier, (f_map[child], child))
-                        heapq.heapify(frontier)
         self.solvable = False
         print("A* (manhattan) expanded nodes: " + str(expanded_nodes))
         return None, parent_map, cost_map
@@ -140,9 +147,10 @@ class Puzzle:
         cost_map = {self.initial_state: 0}
         heuristic_map = {self.initial_state: self.get_euc_h(self.initial_state)}
         f_map = {self.initial_state: self.get_euc_h(self.initial_state)}
-
         frontier = []  # frontier is a priority queue/minheap
         heapq.heappush(frontier, (f_map[self.initial_state], self.initial_state))
+        frontier_set = set()
+        frontier_set.add(self.initial_state)
 
         while frontier:  # while frontier priority queue is not empty (yields true)
             current_cost, state = heapq.heappop(frontier)
@@ -157,12 +165,13 @@ class Puzzle:
 
             children = self.get_children(state)
             for child in children:
-                if child not in frontier and child not in explored:
+                if child not in frontier_set and child not in explored:
                     parent_map[child] = state
                     cost_map[child] = cost_map[state] + 1
                     heuristic_map[child] = self.get_euc_h(child)
                     f_map[child] = cost_map[child] + heuristic_map[child]
                     heapq.heappush(frontier, (f_map[child], child))
+                    frontier_set.add(child)
                 elif child in frontier:
                     if cost_map[state] + 1 < cost_map[child]:
                         parent_map[child] = state
